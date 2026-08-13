@@ -95,38 +95,15 @@ function App() {
     };
 
     const loadProducts = async () => {
+        try {
+            const data = await productApi.all();
+            setProducts(data.products || []);
+        } catch {
+            setProducts(fallbackProducts);
+            showMessage("Backend unavailable. Showing demo products.", "error");
+        }
+    };
 
-    try {
-
-        console.log(
-            "API URL:",
-            import.meta.env.VITE_API_URL
-        );
-
-        const data = await productApi.all();
-
-        console.log(
-            "PRODUCT RESPONSE:",
-            data
-        );
-
-        setProducts(data.products || []);
-
-    } catch (error) {
-
-        console.error(
-            "PRODUCT API ERROR:",
-            error
-        );
-
-        setProducts(fallbackProducts);
-
-        showMessage(
-            error.message,
-            "error"
-        );
-    }
-};
     const loadUserData = async (currentUser) => {
         if (!currentUser) {
             setCart([]);
