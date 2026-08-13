@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
@@ -10,10 +11,6 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/User");
 const cors = require("cors");
 
-// dotenv
-if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config();
-}
 
 
 // =========================
@@ -192,11 +189,11 @@ app.use((req, res, next) => {
 // =========================
 
 app.get("/", (req, res) => {
-
-    res.redirect("/products");
-
+    res.status(200).json({
+        success: true,
+        message: "VELORA backend is running"
+    });
 });
-
 
 // =========================
 // EJS / SERVER ROUTES
@@ -256,36 +253,16 @@ app.use(
 // ERROR HANDLER
 // =========================
 
-app.use(
-    (err, req, res, next) => {
+app.use((err, req, res, next) => {
 
-        console.error("SERVER ERROR:");
-        console.error(err);
+    console.error("SERVER ERROR:", err);
 
-        if (
-            req.path.startsWith("/api")
-        ) {
+    return res.status(500).json({
+        success: false,
+        message: err.message || "Internal server error"
+    });
 
-            return res.status(500).json({
-
-                success: false,
-
-                message: err.message
-
-            });
-
-        }
-
-        res.status(500).render(
-            "error",
-            {
-                err: err.message
-            }
-        );
-
-    }
-);
-
+});
 
 // =========================
 // SERVER
