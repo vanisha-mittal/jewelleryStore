@@ -1,5 +1,21 @@
 const API_URL =
     import.meta.env.VITE_API_URL || "";
+
+export const getImageUrl = (img) => {
+
+    if (!img) {
+        return "";
+    }
+
+    if (
+        img.startsWith("http://") ||
+        img.startsWith("https://")
+    ) {
+        return img;
+    }
+
+    return `${API_URL}${img}`;
+};
 const api = async (url, options = {}) => {
     const response = await fetch(`${API_URL}${url}`, {
         credentials: "include",

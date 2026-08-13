@@ -167,6 +167,3 @@ async function seedDB() {
     }
 
 }
-
-
-seedDB();

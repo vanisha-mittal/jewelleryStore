@@ -8,7 +8,7 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/User");
-
+const cors = require("cors");
 
 // dotenv
 if (process.env.NODE_ENV !== "production") {
@@ -60,22 +60,37 @@ mongoose
 // SESSION
 // =========================
 
+const isProduction =
+    process.env.NODE_ENV === "production";
+
 const configSession = {
 
     secret:
         process.env.SESSION_SECRET ||
-        "velora-secret-change-this",
+        "aurelia-secret-change-this",
 
     resave: false,
 
     saveUninitialized: false,
 
     cookie: {
-        httpOnly: true,
-        maxAge: 7 * 24 * 60 * 60 * 1000
-    }
 
+        httpOnly: true,
+
+        maxAge:
+            7 * 24 * 60 * 60 * 1000,
+
+        secure: isProduction,
+
+        sameSite:
+            isProduction
+                ? "none"
+                : "lax"
+    }
 };
+if (isProduction) {
+    app.set("trust proxy", 1);
+}
 
 
 // =========================
@@ -98,7 +113,12 @@ app.use(
         extended: true
     })
 );
-
+app.use(
+    cors({
+        origin: process.env.FRONTEND_URL,
+        credentials: true
+    })
+);
 app.use(express.json());
 
 app.use(

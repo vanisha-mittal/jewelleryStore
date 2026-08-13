@@ -26,6 +26,7 @@ import {
     reviewApi
 } from "./api";
 import "./luxury.css";
+import { getImageUrl } from "./api";
 
 const CATEGORIES = ["ALL", "NECKLACES", "RINGS", "EARRINGS", "BRACELETS"];
 
@@ -509,7 +510,7 @@ function ProductCard({ product, liked, onLike, onQuick, onAdd, index }) {
         >
             <div className="product-media">
                 <img
-                    src={product.img || "/jewellery-necklace.png"}
+                    src={getImageUrl(product.img)|| "/jewellery-necklace.png"}
                     alt={product.name}
                 />
 
@@ -875,12 +876,12 @@ return(
                 <div className="quick-image">
 
                     <img
-                        src={
-                            product.img ||
-                            "/jewellery-necklace.png"
-                        }
-                        alt={product.name}
-                    />
+    src={
+        getImageUrl(product.img) ||
+        "/jewellery-necklace.png"
+    }
+    alt={product.name}
+/>
 
                 </div>
 
