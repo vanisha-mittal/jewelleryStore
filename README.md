@@ -1,20 +1,8 @@
-# VELORA® --- Fine Jewellery
+# VELORA - Fine Jewellery
 
-```{=html}
-<p align="center">
-```
-`<strong>`{=html}A premium full-stack jewellery e-commerce
-platform`</strong>`{=html}
-```{=html}
-</p>
-```
-```{=html}
-<p align="center">
-```
+A premium full-stack jewellery e-commerce platform
 React • Vite • Node.js • Express.js • MongoDB • Mongoose • Passport.js
-```{=html}
-</p>
-```
+
 
 ------------------------------------------------------------------------
 
@@ -26,9 +14,8 @@ React • Vite • Node.js • Express.js • MongoDB • Mongoose • Passport.
 
 ```
 [![VELORA Demo
-Video](https://img.shields.io/badge/▶%20Watch-Demo%20Video-black?style=for-the-badge)](https://github.com/YOUR-USERNAME/YOUR-REPOSITORY/blob/main/docs/demo/VELORA-demo.mp4)
+Video](https://img.shields.io/badge/▶%20Watch-Demo%20Video-black?style=for-the-badge)](https://github.com/vanisha-mittal/jewelleryStore/docs/demo/VELORA-demo.mp4)
 
-**Demo video:** `vanisha-mittal/jewelleryStore/docs/demo/VELORA-demo.mp4`
 
 
 ------------------------------------------------------------------------
