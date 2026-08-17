@@ -4,18 +4,6 @@ A premium full-stack jewellery e-commerce platform
 React • Vite • Node.js • Express.js • MongoDB • Mongoose • Passport.js
 
 
-------------------------------------------------------------------------
-
-## 🎥 Demo Video
-
-> **Watch the complete project demonstration below.**
-
-```{=html}
-
-```
-[![VELORA Demo
-Video](https://img.shields.io/badge/▶%20Watch-Demo%20Video-black?style=for-the-badge)](https://github.com/vanisha-mittal/jewelleryStore/docs/demo/VELORA-demo.mp4)
-
 
 
 ------------------------------------------------------------------------
